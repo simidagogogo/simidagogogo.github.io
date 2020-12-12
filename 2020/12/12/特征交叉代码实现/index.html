@@ -218,15 +218,15 @@
 
 
 
-<h5 id="代码逻辑："><a href="#代码逻辑：" class="headerlink" title="代码逻辑："></a>代码逻辑：</h5><p>对若干个特征（一般为2个），进行特征交叉。过程即对若干特征之间做笛卡尔积。时间复杂度为<code>O(n^num)</code>，其中<code>num</code>为交叉特征的个数。</p>
-<h5 id="详细过程："><a href="#详细过程：" class="headerlink" title="详细过程："></a>详细过程：</h5><p>1、对<code>indexes</code>进行初始化</p>
+<h5 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h5><p>对若干个特征（一般为2个），进行特征交叉。过程即对若干特征之间做笛卡尔积。时间复杂度为<code>O(n^num)</code>，其中<code>num</code>为交叉特征的个数。</p>
+<h5 id="详细过程"><a href="#详细过程" class="headerlink" title="详细过程"></a>详细过程</h5><p>1、对<code>indexes</code>进行初始化</p>
 <p>2、通过<code>while</code>循环，模拟特征交叉的笛卡尔积。</p>
 <ul>
 <li>跳过<code>f_index</code>为0的元素</li>
 <li>将各个特征的<code>f_index</code>和<code>index</code>，按顺序拼接后作为key进行hash，得到<code>pos</code>并添加进<code>buf</code></li>
 </ul>
 <p>3、模仿带进位加法（从低到高），进行排列组合</p>
-<h5 id="详细过程和代码实现："><a href="#详细过程和代码实现：" class="headerlink" title="详细过程和代码实现："></a>详细过程和代码实现：</h5><p>1、对<code>indexes</code>进行初始化</p>
+<h5 id="详细过程和代码实现"><a href="#详细过程和代码实现" class="headerlink" title="详细过程和代码实现"></a>详细过程和代码实现</h5><p>1、对<code>indexes</code>进行初始化</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Re-initialize the indexes.</span></span><br><span class="line"><span class="keyword">for</span> (i &lt;- <span class="number">0</span> until rnfs.length) &#123;</span><br><span class="line">  indexes(i) = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2、通过while循环，模拟特征交叉的笛卡尔积。</p>
@@ -244,7 +244,7 @@
 
 
 
-<h5 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h5><p>假设<code>rnfs.size() = 2</code>。即两个特征之间做交叉。</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>假设<code>rnfs.size() = 2</code>。即两个特征之间做交叉。</p>
 <p>f1 的 <code>feature_list = [(1, 0.1), (2, 0.2), (3, 0.3), ..., (64, 0.9)]</code></p>
 <p>f2 的 <code>feature_list = [(1, 0.9), (2, 0.8), (3, 0.7), ..., (64, 0.1)]</code></p>
 <p><code>indexes</code>中的元素值，对应各个特征<code>feature_list</code>中元素位置。例如<code>indexes(0) = 9</code>，表示第一个特征中<code>feature_list</code>下标第9位元素。<code>indexes</code>的长度等于交叉特征的个数，即<code>indexes.size() = rnfs.size() </code>。</p>
@@ -332,7 +332,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">代码逻辑：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">详细过程：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E8%BF%87%E7%A8%8B%E5%92%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">详细过程和代码实现：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">例子：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">代码逻辑</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">详细过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E8%BF%87%E7%A8%8B%E5%92%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">详细过程和代码实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">5.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
